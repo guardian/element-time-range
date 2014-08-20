@@ -2,6 +2,8 @@
   "name": "element-time-range#gh-pages",
   "private": true,
   "dependencies": {
-    "time-range": "guardian/element-time-range#master"
+    "time-range": "guardian/element-time-range#master",
+    "paper-radio-group": "Polymer/paper-radio-group#~0.3.5",
+    "paper-radio-button": "Polymer/paper-radio-button#~0.3.5"
   }
 }

@@ -1,0 +1,126 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Element enforcing a custom time range between a `start` and `end`
+dates.
+
+Either the `start` or the `end` date must be provided; the other one
+is computed based on the range determined by the `days`, `minutes` and
+`seconds` attributes.
+
+##### Example
+
+    <time-range start="1970-01-01T00:00:00" end="{{threeDaysAfterEpoch}}" days="3"></time-range>
+
+@element time-range
+@blurb Element enforcing a time range between two dates.
+@status alpha
+-->
+<polymer-element name="time-range" attributes="start end seconds minutes hours days">
+  <template>
+  </template>
+  <script>
+    function addDuration(time, hours, minutes, seconds) {
+      var shiftedDate = new Date(time);
+      shiftedDate.setHours  (shiftedDate.getHours()   + hours);
+      shiftedDate.setMinutes(shiftedDate.getMinutes() + minutes);
+      shiftedDate.setSeconds(shiftedDate.getSeconds() + seconds);
+      return shiftedDate;
+    }
+
+    Polymer('time-range', {
+      /**
+       * The `start` date of the time range.
+       *
+       * If initially set, `end` must not be initialised as it will be
+       * dynamically computed based on `start` and the range.
+       *
+       * @attribute start
+       * @type Date|String (parseable as Date)
+       * @default undefined
+       */
+      start: undefined,
+
+      /**
+       * The `end` date of the time range.
+       *
+       * If initially set, `start` must not be initialised as it will be
+       * dynamically computed based on `end` and the range.
+       *
+       * @attribute end
+       * @type Date|String (parseable as Date)
+       * @default undefined
+       */
+      end: undefined,
+
+      /**
+       * The number of `hours` in this time range.
+       *
+       * @attribute hours
+       * @type Number
+       * @default 0
+       */
+      hours:   0,
+
+      /**
+       * The number of `minutes` in this time range.
+       *
+       * @attribute minutes
+       * @type Number
+       * @default 0
+       */
+      minutes: 0,
+
+      /**
+       * The number of `seconds` in this time range.
+       *
+       * @attribute seconds
+       * @type Number
+       * @default 0
+       */
+      seconds: 0,
+
+
+      observe: {
+        end:     'update',
+        hours:   'update',
+        minutes: 'update',
+        seconds: 'update'
+      },
+
+
+      /* == Internal methods == */
+
+      update: function() {
+        var nHours   = Number(this.hours);
+        var nMinutes = Number(this.minutes);
+        var nSeconds = Number(this.seconds);
+
+        if (this.fixed === 'start') {
+          this.end = addDuration(this.start, nHours, nMinutes, nSeconds);
+        } else if (this.fixed === 'end') {
+          this.start = addDuration(this.end, -nHours, -nMinutes, -nSeconds);
+        }
+        // else misused, do nothing
+      },
+
+
+      /* == Lifecycle == */
+
+      ready: function() {
+        if (this.start && this.end) {
+          console.error('time-range: you must initialise only one of start or end attributes');
+        } else if (this.start) {
+          this.fixed = 'start';
+        } else if (this.end) {
+          this.fixed = 'end';
+        } else {
+          // more graceful failure
+        }
+
+        this.update();
+      }
+
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>time-range</title>
+
+  <script src="../../platform/platform.js"></script>
+  <link rel="import" href="../../polymer-test-tools/tools.html">
+  <script src="../../polymer-test-tools/htmltest.js"></script>
+
+  <!-- Step 1: import the element to test -->
+  <link rel="import" href="../time-range.html">
+
+</head>
+<body>
+
+  <time-range end="1971-01-01T00:00:00" hours="1" minutes="1" seconds="1"></time-range>
+
+  <script>
+
+    document.addEventListener('polymer-ready', function() {
+      var myEl = document.querySelector('time-range');
+      assert.equal(typeof myEl.start, 'object');
+      assert(myEl.start instanceof Date);
+
+      assert.equal(myEl.start.toISOString(), '1970-12-31T21:58:59.000Z');
+      done();
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+  "name": "element-time-range#gh-pages",
+  "private": true,
+  "dependencies": {
+    "time-range": "guardian/element-time-range#master"
+  }
+}

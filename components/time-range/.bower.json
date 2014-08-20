@@ -1,0 +1,32 @@
+{
+  "name": "time-range",
+  "authors": [
+    "Sébastien Cevey <seb.cevey@theguardian.com>"
+  ],
+  "description": "Element enforcing a custom time range between two dates",
+  "keywords": "time, date, polymer, web-components",
+  "main": "time-range.html",
+  "license": "Apache-2",
+  "homepage": "https://github.com/guardian/element-time-range/",
+  "ignore": [
+    "**/.*"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.3.4",
+    "polymer-test-tools": "Polymer/polymer-test-tools#~0.3.3"
+  },
+  "devDependencies": {
+    "paper-radio-group": "Polymer/paper-radio-group#~0.3.5",
+    "paper-radio-button": "Polymer/paper-radio-button#~0.3.5"
+  },
+  "_release": "3a78148e73",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "3a78148e73302351bae0101ed2cd69dad72343d7"
+  },
+  "_source": "git://github.com/guardian/element-time-range.git",
+  "_target": "master",
+  "_originalSource": "guardian/element-time-range",
+  "_direct": true
+}

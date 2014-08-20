@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>time-range Demo</title>
+
+  <script src="../platform/platform.js"></script>
+  <link rel="import" href="time-range.html">
+  <link rel="import" href="../paper-radio-group/paper-radio-group.html">
+  <link rel="import" href="../paper-radio-button/paper-radio-button.html">
+
+</head>
+<body unresolved>
+
+  <p>An example of using <code>&lt;time-range></code>:</p>
+
+  <template is="auto-binding">
+
+    <paper-radio-group selected="{{hours}}">
+      <paper-radio-button name="1" label="1h"></paper-radio-button>
+      <paper-radio-button name="3" label="3h"></paper-radio-button>
+      <paper-radio-button name="12" label="12h"></paper-radio-button>
+      <paper-radio-button name="24" label="1d"></paper-radio-button>
+      <paper-radio-button name="168" label="1w"></paper-radio-button>
+    </paper-radio-group>
+
+    <time-range start="{{startTime}}" end="2014-08-01T13:24:35" hours="{{hours}}">
+    </time-range>
+
+    <p>Start time: {{startTime}}</p>
+    <p>End time: 2014-08-01T13:24:35</p>
+  </template>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<link rel="import" href="../../polymer-test-tools/tools.html">
+
+<script src="../../polymer-test-tools/mocha-htmltest.js"></script>
+
+<script>
+
+  mocha.setup({ui: 'tdd', slow: 1000, timeout: 5000, htmlbase: ''});
+
+  htmlSuite('time-range', function() {
+    htmlTest('time-range-hours.html');
+    htmlTest('time-range-minutes.html');
+    htmlTest('time-range-seconds.html');
+    htmlTest('time-range-end.html');
+    htmlTest('time-range-no-range.html');
+    htmlTest('time-range-update.html');
+    htmlTest('time-range-no-bound.html');
+  });
+
+  mocha.run();
+
+</script>

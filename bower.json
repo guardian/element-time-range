@@ -13,11 +13,11 @@
     "**/.*"
   ],
   "dependencies": {
-    "polymer": "Polymer/polymer#~0.3.4",
-    "polymer-test-tools": "Polymer/polymer-test-tools#~0.3.3"
+    "polymer": "^0.5.2",
+    "polymer-test-tools": "Polymer/polymer-test-tools#^0.5.2"
   },
   "devDependencies": {
-    "paper-radio-group": "Polymer/paper-radio-group#~0.3.5",
-    "paper-radio-button": "Polymer/paper-radio-button#~0.3.5"
+    "paper-radio-group": "Polymer/paper-radio-group#^0.5.2",
+    "paper-radio-button": "Polymer/paper-radio-button#^0.5.2"
   }
 }
